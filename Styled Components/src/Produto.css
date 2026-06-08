@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, sans-serif;
+    background-image:radial-gradient(circle, #f0f0f0, #c0c0c0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+.btn-verde{
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.btn.cinza{
+    background-color:#6c757d;
+    color:#fff;
+}
+.produto-2{
+    margin-left: 20px;
+    height: 400px;
+    width: 300px;
+}
