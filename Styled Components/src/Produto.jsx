@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import './Produto.css';
 
@@ -52,7 +52,8 @@ const BotaoComprar = styled.button`
 `;
 
 const Botao = styled.button`
-  background-color: #6c757d;
+  background-color: ${props => (props.adicionado ? '#198754' : '#6c757d')};
+
   color: white;
   border: none;
   margin-top: 10px;
@@ -63,17 +64,24 @@ const Botao = styled.button`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #565e64;
+    background-color: ${props => (props.adicionado ? '#0d442a' : '#565e64')};
   }
 `;
 
 function App() {
+  const [adicionado, setAdicionado] = useState(false);
+
   const handleComprar = () => {
     alert('Produto comprado!');
   };
 
   const handleAdicionarCarrinho = () => {
-    alert('Produto adicionado ao carrinho!');
+    setAdicionado(prev => !prev);
+    if (!adicionado) {
+      alert('Produto adicionado ao carrinho!');
+    } else {
+      alert('Produto removido do carrinho!');
+    }
   };
 
   return (
@@ -91,8 +99,8 @@ function App() {
         Comprar
       </BotaoComprar>
 
-      <Botao onClick={handleAdicionarCarrinho}>
-        Adicionar ao Carrinho
+      <Botao onClick={handleAdicionarCarrinho} adicionado={adicionado}>
+        {adicionado ? 'Remover do Carrinho' : 'Adicionar ao Carrinho'}
       </Botao>
     </ProdutoContainer>
   );
