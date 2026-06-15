@@ -1,6 +1,6 @@
 import { selector } from 'recoil';
-import { tasksAtom } from '../taskAtom';
-import { filterAtom } from '../filterAtom';
+import { tasksAtom } from '../atoms/taskAtom';
+import { filterAtom } from '../atoms/filterAtom';
 
 export const filteredTasksSelector = selector({
   key: 'filteredTasksSelector',

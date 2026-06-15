@@ -1,17 +1,20 @@
-import TaskForm from './atoms/selectors/components/TaskForm';
-import TaskList from './atoms/selectors/components/TaskList';
-import FilterButtons from './atoms/selectors/components/FilterButtons';
+import './Que.css';
+import TaskForm from './components/TaskForm';
+import TaskList from './components/TaskList';
+import FilterButtons from './components/FilterButtons';
 
 function App() {
     return (
-        <div style={{ padding: 20 }}>
-            <h1>To-do List com Recoil</h1>
+        <div className="app-shell">
+            <div className="app-card">
+                <h1>To-do List com Recoil</h1>
 
-            <TaskForm />
+                <TaskForm />
 
-            <div style={{ marginTop: 12 }}>
-                <FilterButtons />
-                <TaskList />
+                <div className="controls">
+                    <FilterButtons />
+                    <TaskList />
+                </div>
             </div>
         </div>
     );

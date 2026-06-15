@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { tasksAtom } from '../../taskAtom';
+import { tasksAtom } from '../atoms/taskAtom';
 
 function TaskForm() {
     const [text, setText] = useState('');
@@ -16,14 +16,17 @@ function TaskForm() {
     };
 
     return (
-        <div>
+        <div className="task-form">
             <input
+                className="task-input"
                 type="text"
                 placeholder="Digite uma tarefa..."
                 value={text}
                 onChange={handleTextChange}
             />
-            <button onClick={addTask}>Adicionar tarefa</button>
+            <button className="task-submit" onClick={addTask}>
+                Adicionar tarefa
+            </button>
         </div>
     );
 }

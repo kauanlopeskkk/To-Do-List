@@ -1,5 +1,5 @@
 import { useRecoilValue } from 'recoil';
-import { filteredTasksSelector } from '../filteredTasksSelector';
+import { filteredTasksSelector } from '../selectors/filteredTasksSelector';
 import TaskItem from './TaskItem';
 
 function TaskList() {
