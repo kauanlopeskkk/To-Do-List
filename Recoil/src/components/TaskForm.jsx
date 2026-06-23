@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { tasksAtom } from '../atoms/taskAtom';
 
@@ -8,15 +8,17 @@ function TaskForm() {
 
     const handleTextChange = (e) => setText(e.target.value);
 
-    const addTask = () => {
+    const addTask = (e) => {
+        e.preventDefault();
         if (text.trim() === '') return;
+
         const newTask = { id: Date.now(), text: text.trim(), completed: false };
         setTasks([...tasks, newTask]);
         setText('');
     };
 
     return (
-        <div className="task-form">
+        <form className="task-form" onSubmit={addTask}>
             <input
                 className="task-input"
                 type="text"
@@ -24,10 +26,10 @@ function TaskForm() {
                 value={text}
                 onChange={handleTextChange}
             />
-            <button className="task-submit" onClick={addTask}>
+            <button className="task-submit" type="submit">
                 Adicionar tarefa
             </button>
-        </div>
+        </form>
     );
 }
 

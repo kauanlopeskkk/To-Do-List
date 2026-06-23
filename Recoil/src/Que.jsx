@@ -7,7 +7,7 @@ function App() {
     return (
         <div className="app-shell">
             <div className="app-card">
-                <h1>To-do List com Recoil</h1>
+                <h1>Lista de Tarefas</h1>
 
                 <TaskForm />
 

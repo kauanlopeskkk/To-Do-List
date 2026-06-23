@@ -3,19 +3,24 @@ import { filterAtom } from '../atoms/filterAtom';
 
 function FilterButtons() {
     const [filter, setFilter] = useRecoilState(filterAtom);
+    const filters = [
+        { value: 'all', label: 'Todas' },
+        { value: 'completed', label: 'Concluídas' },
+        { value: 'pending', label: 'Pendentes' },
+    ];
 
     return (
         <div className="filter-bar">
-            <button className="filter-button" onClick={() => setFilter('all')}>
-                Todas
-            </button>
-            <button className="filter-button" onClick={() => setFilter('completed')}>
-                Concluídas
-            </button>
-            <button className="filter-button" onClick={() => setFilter('pending')}>
-                Pendentes
-            </button>
-            <p className="filter-text">Filtro atual: {filter}</p>
+            {filters.map((item) => (
+                <button
+                    key={item.value}
+                    className={`filter-button ${filter === item.value ? 'active' : ''}`}
+                    type="button"
+                    onClick={() => setFilter(item.value)}
+                >
+                    {item.label}
+                </button>
+            ))}
         </div>
     );
 }

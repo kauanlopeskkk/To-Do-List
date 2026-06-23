@@ -1,16 +1,42 @@
-# React + Vite
+# To-do List com Recoil
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o projeto de To-do List utilizando React, Vite e Recoil.
 
-Currently, two official plugins are available:
+O app permite:
+- adicionar tarefas
+- listar tarefas
+- filtrar tarefas por todas, concluídas e pendentes
+- marcar e desmarcar tarefas como concluídas
+- remover tarefas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Como executar
 
-## React Compiler
+1. Abra o terminal na pasta `Recoil`
+2. Instale as dependências:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+```
 
-## Expanding the ESLint configuration
+3. Inicie o servidor de desenvolvimento:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm run dev
+```
+
+4. Abra o endereço exibido no terminal, normalmente `http://localhost:5173`
+
+## Estrutura principal
+
+- `src/main.jsx`: renderiza o app dentro de `RecoilRoot`
+- `src/atoms/taskAtom.js`: átomo para o estado das tarefas
+- `src/atoms/filterAtom.js`: átomo para o filtro atual
+- `src/selectors/filteredTasksSelector.js`: seletor para retornar tarefas filtradas
+- `src/components/TaskForm.jsx`: adiciona tarefas usando `useRecoilState`
+- `src/components/TaskList.jsx`: lista as tarefas filtradas usando `useRecoilValue`
+- `src/components/TaskItem.jsx`: alterna conclusão e remove tarefas usando `useRecoilState`
+- `src/components/FilterButtons.jsx`: define o filtro atual usando `useRecoilState`
+
+## Observações
+
+O estado global do app é gerenciado com Recoil, usando `atom`, `selector`, `useRecoilState`, `useRecoilValue` e `RecoilRoot`.
