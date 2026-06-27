@@ -9,6 +9,17 @@ O app permite:
 - marcar e desmarcar tarefas como concluídas
 - remover tarefas
 
+## Atendimento da atividade
+
+O projeto usa Recoil para gerenciar o estado global da lista de tarefas:
+
+- `RecoilRoot` em `src/main.jsx` envolve toda a aplicação
+- `tasksAtom` em `src/atoms/taskAtom.js` armazena as tarefas
+- `filterAtom` em `src/atoms/filterAtom.js` armazena o filtro atual
+- `filteredTasksSelector` em `src/selectors/filteredTasksSelector.js` retorna a lista filtrada
+- `useRecoilState` é usado para adicionar, concluir, remover e alterar o filtro
+- `useRecoilValue` é usado para ler as tarefas filtradas no componente de lista
+
 ## Como executar
 
 1. Abra o terminal na pasta `Recoil`
